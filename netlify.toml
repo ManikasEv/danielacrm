@@ -1,7 +1,14 @@
+# Deploy this folder as its own Netlify site (Base directory = crm)
+
 [build]
+  base = "."
   command = "npm run build"
   publish = "dist"
 
+[build.environment]
+  NODE_VERSION = "20"
+
+# SPA routes (Clerk /sign-in, /tickets, etc.)
 [[redirects]]
   from = "/*"
   to = "/index.html"
