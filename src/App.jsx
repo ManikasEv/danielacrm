@@ -14,6 +14,7 @@ import BudgetPage from './pages/BudgetPage'
 import SchedulePage from './pages/SchedulePage'
 import BrainstormPage from './pages/BrainstormPage'
 import ServicesPage from './pages/ServicesPage'
+import { clerkAppearance } from './lib/clerkAppearance'
 
 const pk = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
@@ -40,7 +41,7 @@ export default function App() {
   }
 
   return (
-    <ClerkProvider publishableKey={pk}>
+    <ClerkProvider publishableKey={pk} appearance={clerkAppearance}>
       <BrowserRouter>
         <Routes>
           <Route path="/sign-in/*" element={<SignInPage />} />
