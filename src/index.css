@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Syne", sans-serif;
+  --font-body: "Outfit", sans-serif;
+  --color-ink: #070a09;
+  --color-ink-soft: #0e1612;
+  --color-paper: #e8efe9;
+  --color-muted: #7a8f82;
+  --color-line: #24352c;
+  --color-emerald: #10b981;
+  --color-emerald-bright: #34d399;
+  --color-emerald-dim: #064e3b;
+}
+
+@layer base {
+  body {
+    @apply bg-ink text-paper font-body antialiased;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 10% -10%, rgb(16 185 129 / 0.12), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 20%, rgb(6 78 59 / 0.35), transparent);
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+}
