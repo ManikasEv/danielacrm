@@ -3,7 +3,6 @@ import {
   ClerkProvider,
   SignedIn,
   SignedOut,
-  RedirectToSignIn,
 } from '@clerk/clerk-react'
 import CrmShell from './layouts/CrmShell'
 import SignInPage from './pages/SignInPage'
@@ -25,7 +24,8 @@ function Protected({ children }) {
         <CrmShell>{children}</CrmShell>
       </SignedIn>
       <SignedOut>
-        <RedirectToSignIn />
+        {/* Stay on our app — never bounce to accounts.dev Account Portal */}
+        <Navigate to="/sign-in" replace />
       </SignedOut>
     </>
   )
@@ -41,7 +41,15 @@ export default function App() {
   }
 
   return (
-    <ClerkProvider publishableKey={pk} appearance={clerkAppearance}>
+    <ClerkProvider
+      publishableKey={pk}
+      appearance={clerkAppearance}
+      signInUrl="/sign-in"
+      signUpUrl="/sign-in"
+      afterSignOutUrl="/sign-in"
+      signInFallbackRedirectUrl="/"
+      signUpFallbackRedirectUrl="/sign-in"
+    >
       <BrowserRouter>
         <Routes>
           <Route path="/sign-in/*" element={<SignInPage />} />

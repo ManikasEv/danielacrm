@@ -11,7 +11,9 @@ export default function SignInPage() {
         routing="path"
         path="/sign-in"
         fallbackRedirectUrl="/"
-        signUpUrl={undefined}
+        forceRedirectUrl="/"
+        // Never send users to a sign-up flow
+        signUpUrl="/sign-in"
         appearance={clerkAppearance}
         localization={clerkLocalization}
       />
