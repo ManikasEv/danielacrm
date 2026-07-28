@@ -1,11 +1,12 @@
-# Deploy when Netlify Base directory = crm
+# Used when Netlify Base directory = crm
 
 [build]
-  command = "npm install && npx vite build"
+  command = "rm -rf node_modules && npm install && npm run build"
   publish = "dist"
 
 [build.environment]
   NODE_VERSION = "20"
+  NPM_FLAGS = "--include=dev"
 
 [[redirects]]
   from = "/*"
